@@ -1,7 +1,6 @@
 import Nav from "./Nav"
-import FetchStore from "./FetchStore"
 
-function Homepage() {
+function Homepage(itemsInCart, setItemsInCart) {
     return (
         <>
             <Nav />

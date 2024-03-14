@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react"
 
-function FetchStore() {
-    const [data, setData] = useState([]);
+function FetchStore({data, setData, isLoading, setIsLoading, handleAddToCart}) {
+    // const [data, setData] = useState([]);
     const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -16,6 +17,7 @@ function FetchStore() {
                 itemList.push(results);
                 setData(itemList);
                 console.log(itemList);
+                return itemList
             } catch (error) {
                 setError(error.message)
                 setData(null);
@@ -32,9 +34,16 @@ function FetchStore() {
         <div className="store-items">
             {data[0].map(data =>
                 <>
-                    <div key={data.title} id={data.title} className="store-card">
-                        <img id={data.title} src={data.image} className="item-image" />
+                    <div key={data.id} id={data.id} className="store-card">
+                        <img id={data.id} src={data.image} className="item-image" />
                         <p id={data.title}>{data.title}</p>
+                        <p id={data.price}>${data.price}</p>
+                        {/* <form className="buy-form" onSubmit={addToCart}> */}
+                        <form className="buy-form" id={data.title} onSubmit={handleAddToCart}>
+                            <label htmlFor="quantity">Amount</label>
+                                <input type="number" id="quantity" name="quantity" min="1" max="5" />
+                                <input type="submit" className="add-to-cart" value="Add to Cart" />
+                        </form>
                     </div>
                 </>
                 )}
