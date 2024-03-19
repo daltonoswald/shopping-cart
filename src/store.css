@@ -1,0 +1,31 @@
+.store-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-wrap: wrap;
+    gap: 1em;
+}
+
+.store-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 150px;
+    border: 2px solid black;
+    padding: 1em;
+}
+
+.item-image {
+    height: 100px;
+    width: 100px;
+}
+
+.quantity-section {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem;
+}

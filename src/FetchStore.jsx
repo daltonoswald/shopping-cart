@@ -8,16 +8,18 @@ function FetchStore({data, setData, isLoading, setIsLoading, handleAddToCart}) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const itemList = [];
+                // const itemList = [];
                 const response = await fetch('https://fakestoreapi.com/products');
                 if (!response.ok) {
                     throw new Error(`Failed to fetch${response.status}`)
                 }
                 const results = await response.json();
-                itemList.push(results);
-                setData(itemList);
-                console.log(itemList);
-                return itemList
+                // itemList.push(results);
+                // setData(itemList);
+                setData(results)
+                console.log(results)
+                // console.log(itemList);
+                // return itemList
             } catch (error) {
                 setError(error.message)
                 setData(null);
@@ -26,13 +28,13 @@ function FetchStore({data, setData, isLoading, setIsLoading, handleAddToCart}) {
         }
     }
     fetchData();
-    }, [setData])
+    }, [])
 
     if (isLoading) return <p>Loading...</p>
 
     return (
         <div className="store-items">
-            {data[0].map(data =>
+            {data.map(data =>
                 <>
                     <div key={data.id} id={data.id} className="store-card">
                         <img id={data.id} src={data.image} className="item-image" />

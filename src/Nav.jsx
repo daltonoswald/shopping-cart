@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import cartIcon from "./assets/shopping-cart.svg"
 
-function Nav() {
+function Nav({itemsInCart}) {
     return (
         <div className="nav">
             <div className="links">
@@ -11,6 +11,7 @@ function Nav() {
             <div className="cart-link">
                 <Link to="/cart"> 
                     <img className="shopping-cart-icon" src={cartIcon} alt="shopping cart" /> 
+                    {/* <p>{itemsInCart.length}</p> */}
                 </Link>
             </div>
         </div>

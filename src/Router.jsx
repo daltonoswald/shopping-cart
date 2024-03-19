@@ -7,7 +7,7 @@ import ItemPage from "./ItemPage";
 import Cart from "./Cart";
 
 function Router() {
-    const [itemsInCart, setItemsInCart] = useState(['item1', 'item2']);
+    const [itemsInCart, setItemsInCart] = useState([]);
     const router = createBrowserRouter([
         {
             path: "/",

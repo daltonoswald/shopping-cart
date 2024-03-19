@@ -1,9 +1,9 @@
 import Nav from "./Nav"
 
-function Homepage(itemsInCart, setItemsInCart) {
+function Homepage({itemsInCart, setItemsInCart}) {
     return (
         <>
-            <Nav />
+            <Nav itemsInCart={itemsInCart} />
             <h1>Welcome to the homepage!</h1>
         </>
     )
