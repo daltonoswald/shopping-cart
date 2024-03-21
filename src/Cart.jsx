@@ -8,23 +8,25 @@ function Cart({itemsInCart, setItemsInCart}) {
     return (
         <>
             <Nav itemsInCart={itemsInCart} />
-            <p>Welcome to the cart.</p>
-            <div className="items-in-cart">
-                {/* {itemsInCart.map((item) =>
-                        <div>{item}</div>
-                )} */}
-                {itemsInCart.length !== 0 ? (
-                    itemsInCart.map(item => (
-                        <CartItem key={item[0].id} data={item} />
-                    ))
-                )
-                : (
+            <div className="content">
+                <div className="cart-container">
+                    <div className="cart-heading">Cart</div>
+                    {/* {itemsInCart.map((item) =>
+                            <div>{item}</div>
+                    )} */}
                     <div className="items-in-cart">
-                        <p>Nothing in your cart.</p>
+                    {itemsInCart.length !== 0 ? (
+                        itemsInCart.map(item => (
+                            <CartItem key={item[0].id} data={item} />
+                        ))
+                    )
+                    : (
+                            <div className="item-wrapper">Nothing in your cart.</div>
+                    )}
                     </div>
-                )}
-            </div>
-            <Total itemsInCart={itemsInCart} />
+                </div>
+                <Total itemsInCart={itemsInCart} />
+        </div>
         </>
     )
 }
@@ -43,12 +45,12 @@ function CartItem({ data }) {
             <img src={data[0].image} className="item-image" />
             <div className="item-card">
                 <h3>{data[0].title}</h3>
-                <p>${data[0].price}</p>
-            </div>
-            <div className="quantity-selction">
-                {/* <button id="minus" onClick={handleDecrease}>-</button> */}
-                <div className="quantity">{quantity}</div>
-                {/* <button id="plus" onClick={() => setQuantity((quantity) => quantity +1)}>+</button> */}
+                <div className="quantity-section">
+                    <button id="minus" onClick={handleDecrease}>-</button>
+                    <div className="quantity">{quantity}</div>
+                    <button id="plus" onClick={() => setQuantity((quantity) => quantity +1)}>+</button>
+                </div>
+                <div className="item-price">${(data[0].price * (quantity)).toFixed(2)}</div>
             </div>
         </div>
     )
@@ -62,8 +64,10 @@ function Total({ itemsInCart }) {
             let price = 0;
             for(let i = 0; i < itemsInCart.length; i++) {
                 price += itemsInCart[i][0].price * itemsInCart[i][1];
+                // price = price.toFixed(2);
             }
-            setTotalPrice(price);
+            let fixedPrice = price.toFixed(2);
+            setTotalPrice(fixedPrice);
         }
         if (itemsInCart.length > 0) calculateTotal();
     },[itemsInCart])

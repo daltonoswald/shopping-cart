@@ -5,6 +5,7 @@ import Store from "./Store";
 import ErrorPage from "./ErrorPage";
 import ItemPage from "./ItemPage";
 import Cart from "./Cart";
+import "./styles.css"
 
 function Router() {
     const [itemsInCart, setItemsInCart] = useState([]);

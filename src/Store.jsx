@@ -48,14 +48,16 @@ function Store({itemsInCart, setItemsInCart}) {
     return (
         <>
             <Nav itemsInCart={itemsInCart} />
-            <h1>Welcome to the store!</h1>
-            {/* <FetchStore data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} handleAddToCart={handleAddToCart} /> */}
-            <div className="store-items">
-                {data && (
-                    data.map(item => (
-                        <Card key={item.id} data={item} itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} />
-                    ))
-                )}
+            <div className="content">
+                <h1>Welcome to the store!</h1>
+                {/* <FetchStore data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} handleAddToCart={handleAddToCart} /> */}
+                <div className="store-items">
+                    {data && (
+                        data.map(item => (
+                            <Card key={item.id} data={item} itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} />
+                        ))
+                    )}
+                </div>
             </div>
         </>
     )
@@ -85,7 +87,8 @@ function Card({ data, itemsInCart, setItemsInCart }) {
     return (
         <>
         <div key={data.id} id={data.id} className="store-card">
-            <img src={data.image} className="item-image" />
+            {/* <img src={data.image} className="item-image" /> */}
+            <div className="item-image" style={{backgroundImage: `url(${data.image})`}}></div>
             <p>{data.title}</p>
             <p>${data.price}</p>
             <div className="quantity-section">

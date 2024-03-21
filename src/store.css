@@ -1,7 +1,12 @@
 .store-items {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; */
+    display: grid;
+    justify-items: center;
+    grid-auto-rows: auto;
+    grid-auto-columns: auto;
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr));
     text-wrap: wrap;
     gap: 1em;
 }
@@ -20,6 +25,9 @@
 }
 
 .item-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 100px;
     width: 100px;
 }
