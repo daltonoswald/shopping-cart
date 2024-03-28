@@ -5,6 +5,9 @@
     background-color: lightsteelblue;
     padding: 1vw;
     margin-bottom: 1vh;
+    position: fixed;
+    top: 0;
+    width: -webkit-fill-available;
 }
 
 .links {
@@ -28,6 +31,9 @@ a:hover {
 
 .cart-link {
     height: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .cart-link:hover {
@@ -36,4 +42,20 @@ a:hover {
 
 img {
     height: 32px;
+}
+
+.total-items {
+    /* position: absolute;
+    top: 30px;
+    right: 5px; */
+    background-color: crimson;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+    height: 2px;
+    widtH: 2px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

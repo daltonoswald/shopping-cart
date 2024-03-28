@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav"
 
-function Cart({itemsInCart, setItemsInCart}) {
+function Cart({itemsInCart, setItemsInCart, totalPrice, setTotalPrice, totalItems, setTotalItems}) {
     return (
         <>
-            <Nav itemsInCart={itemsInCart} />
+            <Nav itemsInCart={itemsInCart} totalItems={totalItems} />
             <div className="content">
                 <div className="cart-container">
                     <div className="cart-heading">Cart</div>
@@ -27,7 +27,14 @@ function Cart({itemsInCart, setItemsInCart}) {
                     )}
                     </div>
                 </div>
-                <Total itemsInCart={itemsInCart} />
+                {itemsInCart.length !== 0? (
+                    <Total itemsInCart={itemsInCart} totalPrice={totalPrice} setTotalPrice={setTotalPrice} totalItems={totalItems} setTotalItems={setTotalItems} />
+                )
+                : (
+                    <>
+                    </>
+                )
+                }
         </div>
         </>
     )
@@ -42,6 +49,30 @@ function CartItem({ data, itemsInCart, setItemsInCart }) {
         }
     }
 
+    function handleIncrease() {
+            setQuantity(quantity + 1);
+            // for (let i = 0; i < itemsInCart.length; i++) {
+            //     if (itemsInCart[i][0].id == data[0].id) {
+            //         itemsInCart[i][1] += quantity;
+            //         return;
+            //     }
+            // }
+            // setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
+            // console.log(itemsInCart)
+    }
+
+    // function updateCart(e) {
+    //     e.preventDefault();
+    //     for (let i = 0; i < itemsInCart.length; i++) {
+    //         if (itemsInCart[i][0].id == data[0].id) {
+    //             itemsInCart[i][1] += quantity;
+    //             return;
+    //         }
+    //     }
+    //     setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
+    //     console.log(itemsInCart)
+    // }
+
     function removeItem(data) {
         const updatedCart = itemsInCart.filter(item => item[0].id !== data[0].id);
         setItemsInCart(updatedCart);
@@ -55,18 +86,19 @@ function CartItem({ data, itemsInCart, setItemsInCart }) {
                 <div className="quantity-section">
                     <button id="minus" onClick={handleDecrease}>-</button>
                     <div className="quantity">{quantity}</div>
-                    <button id="plus" onClick={() => setQuantity((quantity) => quantity +1)}>+</button>
+                    <button id="plus" onClick={handleIncrease}>+</button>
+                    {/* <button className="update-cart" onClick={updateCart}>Update Cart</button> */}
                 </div>
-                {/* <button className="remove" onClick={removeItem}>Remove</button> */}
+                <button className="remove" onClick={()=> removeItem(data)}>Remove</button>
                 <div className="item-price">${(data[0].price * (quantity)).toFixed(2)}</div>
             </div>
-            <button className="remove" onClick={()=> removeItem(data)}>Remove</button>
         </div>
     )
 }
 
-function Total({ itemsInCart }) {
-    const [totalPrice, setTotalPrice] = useState(0);
+function Total({ itemsInCart, totalPrice, setTotalPrice, totalItems, setTotalItems }) {
+    // const [totalPrice, setTotalPrice] = useState(0);
+    // const [totalItems, setTotalItems] = useState(0);
 
     useEffect(() => {
         function calculateTotal() {
@@ -83,7 +115,7 @@ function Total({ itemsInCart }) {
     return (
         <div className="total-container">
             <div className="cart-total">Total: ${totalPrice}</div>
-            <button className="checkout">Checkout</button>
+            <Link className="checkout" to="/checkout">Checkout</Link>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import Nav from "./Nav"
 import FetchStore from "./FetchStore"
 import fetchData from "./FetchStore"
 
-function Store({itemsInCart, setItemsInCart}) {
+function Store({itemsInCart, setItemsInCart, totalItems}) {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     // const [quantity, setQuantity] = useState(1);
@@ -34,7 +34,6 @@ function Store({itemsInCart, setItemsInCart}) {
                 }
                 const results = await response.json();
                 setData(results)
-                console.log(results)
             } catch (error) {
                 setError(error.message)
                 setData(null);
@@ -47,9 +46,9 @@ function Store({itemsInCart, setItemsInCart}) {
 
     return (
         <>
-            <Nav itemsInCart={itemsInCart} />
+            <Nav itemsInCart={itemsInCart} totalItems={totalItems} />
             <div className="content">
-                <h1>Welcome to the store!</h1>
+                <h1>Shop All</h1>
                 {/* <FetchStore data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} handleAddToCart={handleAddToCart} /> */}
                 <div className="store-items">
                     {data && (
@@ -81,7 +80,6 @@ function Card({ data, itemsInCart, setItemsInCart }) {
             }
         }
         setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
-        console.log(itemsInCart)
     }
 
     return (

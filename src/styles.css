@@ -1,17 +1,19 @@
 @import "./store.css";
 @import "./nav.css";
 @import "./cart.css";
+@import "./checkout.css";
 
 html {
     margin: 0;
 }
 
 body {
-    /* margin: 1rem 5rem; */
     margin: 0;
+    margin-bottom: 5vh;
 }
 
 .content {
     width: 90vw;
     margin: 0 auto;
+    margin-top: 80px;
 }

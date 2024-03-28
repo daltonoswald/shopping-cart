@@ -1,9 +1,9 @@
 import Nav from "./Nav"
 
-function Homepage({itemsInCart, setItemsInCart}) {
+function Homepage({itemsInCart, totalItems}) {
     return (
         <>
-            <Nav itemsInCart={itemsInCart} />
+            <Nav itemsInCart={itemsInCart} totalItems={totalItems} />
             <div className="content">
                 <h1>Welcome to the homepage!</h1>
             </div>
