@@ -1,13 +1,13 @@
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: lightsteelblue;
-    padding: 1vw;
+    padding: 1vh 0;
     margin-bottom: 1vh;
     position: fixed;
     top: 0;
-    width: -webkit-fill-available;
+    width: 100%
 }
 
 .links {

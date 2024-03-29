@@ -88,7 +88,7 @@ function Card({ data, itemsInCart, setItemsInCart }) {
             {/* <img src={data.image} className="item-image" /> */}
             <div className="item-image" style={{backgroundImage: `url(${data.image})`}}></div>
             <p>{data.title}</p>
-            <p>${data.price}</p>
+            <p>${data.price.toFixed(2)}</p>
             <div className="quantity-section">
                 <button id="minus" onClick={handleDecrease}>-</button>
                 <div className="quantity">{quantity}</div>

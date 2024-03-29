@@ -73,7 +73,7 @@ function Checkout({itemsInCart, totalItems, totalPrice}) {
                     <hr />
                     <div className="order-row">
                         <div className="shipping-type">Standard &#40;3-5 business days&#41;:</div>
-                        <div className="shipping-price">${shippingCost}</div>
+                        <div className="shipping-price">${shippingCost.toFixed(2)}</div>
                     </div>
                     <hr />
                     <div className="order-row">
