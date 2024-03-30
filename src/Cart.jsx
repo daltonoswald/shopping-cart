@@ -43,34 +43,33 @@ function Cart({itemsInCart, setItemsInCart, totalPrice, setTotalPrice, totalItem
 function CartItem({ data, itemsInCart, setItemsInCart }) {
     const [quantity, setQuantity] = useState(data[1]);
 
-    function handleDecrease() {
+    function handleDecrease(e) {
         if (quantity != 1) {
             setQuantity(quantity - 1);
+            e.preventDefault();
+            for (let i = 0; i < itemsInCart.length; i++) {
+                if (itemsInCart[i][0].id == data[0].id) {
+                    itemsInCart[i][1] -= 1;
+                    return;
+                }
+            }
+            setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
         }
     }
 
-    function handleIncrease() {
-            setQuantity(quantity + 1);
-            // for (let i = 0; i < itemsInCart.length; i++) {
-            //     if (itemsInCart[i][0].id == data[0].id) {
-            //         itemsInCart[i][1] += quantity;
-            //         return;
-            //     }
-            // }
-            // setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
-            // console.log(itemsInCart)
+    function handleIncrease(e) {
+        setQuantity(quantity + 1);
+        e.preventDefault();
+        for (let i = 0; i < itemsInCart.length; i++) {
+            if (itemsInCart[i][0].id == data[0].id) {
+                itemsInCart[i][1] += 1;
+                return;
+            }
+        }
+        setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
     }
 
     // function updateCart(e) {
-    //     e.preventDefault();
-    //     for (let i = 0; i < itemsInCart.length; i++) {
-    //         if (itemsInCart[i][0].id == data[0].id) {
-    //             itemsInCart[i][1] += quantity;
-    //             return;
-    //         }
-    //     }
-    //     setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
-    //     console.log(itemsInCart)
     // }
 
     function removeItem(data) {
@@ -96,10 +95,7 @@ function CartItem({ data, itemsInCart, setItemsInCart }) {
     )
 }
 
-function Total({ itemsInCart, totalPrice, setTotalPrice, totalItems, setTotalItems }) {
-    // const [totalPrice, setTotalPrice] = useState(0);
-    // const [totalItems, setTotalItems] = useState(0);
-
+function Total({ itemsInCart, totalPrice, setTotalPrice}) {
     useEffect(() => {
         function calculateTotal() {
             let price = 0;
@@ -109,7 +105,7 @@ function Total({ itemsInCart, totalPrice, setTotalPrice, totalItems, setTotalIte
             let fixedPrice = price.toFixed(2);
             setTotalPrice(fixedPrice);
         }
-        if (itemsInCart.length > 0) calculateTotal();
+        calculateTotal();
     },[itemsInCart])
 
     return (

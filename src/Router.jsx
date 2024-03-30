@@ -22,18 +22,18 @@ function Router() {
             setTotalItems(totalItems);
         }
         calculateTotalItems();
-    },[itemsInCart, totalItems]);
+    },[itemsInCart, totalPrice]);
 
     const router = createBrowserRouter([
         {
             path: "/",
             element: <Homepage itemsInCart={itemsInCart} totalItems={totalItems} />,
-            errorElement: <ErrorPage itemsInCart={itemsInCart} />,
+            errorElement: <ErrorPage itemsInCart={itemsInCart} totalItems={totalItems}/>,
         },
         {
             path: "store",
             element: <Store itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} totalItems={totalItems} />,
-            errorElement: <ErrorPage itemsInCart={itemsInCart} />,
+            errorElement: <ErrorPage itemsInCart={itemsInCart} totalItems={totalItems}/>,
             // children: [
             //     {
             //         path: "/item/:itemID",
@@ -45,11 +45,12 @@ function Router() {
         {
             path: "cart",
             element: <Cart itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} totalPrice={totalPrice} setTotalPrice={setTotalPrice} totalItems={totalItems} setTotalItems={setTotalItems} />,
-            errorElement: <ErrorPage itemsInCart={itemsInCart} />
+            errorElement: <ErrorPage itemsInCart={itemsInCart} totalItems={totalItems}/>
         },
         {
             path: "checkout",
-            element: <Checkout totalItems={totalItems} totalPrice={totalPrice} />
+            element: <Checkout totalItems={totalItems} totalPrice={totalPrice} />,
+            errorElement: <ErrorPage itemsInCart={itemsInCart} totalItems={totalItems}/>
         }
     ]);
 
