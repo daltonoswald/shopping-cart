@@ -1,29 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import Nav from "./Nav"
-import FetchStore from "./FetchStore"
-import fetchData from "./FetchStore"
+import FetchStore from "../FetchStore"
+import fetchData from "../FetchStore"
 
 function Store({itemsInCart, setItemsInCart, totalItems}) {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    // const [quantity, setQuantity] = useState(1);
-
-    // function handleAddToCart(e) {
-    //     e.preventDefault();
-    //     // setItemsInCart([...itemsInCart, e.target.id])
-    //     // console.log(itemsInCart);
-    //     // console.log(itemsInCart.price);
-    //     for (let i = 0; i < itemsInCart.length; i++) {
-    //         if (itemsInCart[i][0].id == data.id) {
-    //             itemsInCart[i][1] += quantity;
-    //         }
-    //     }
-    //     setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
-    //     console.log(itemsInCart)
-    // }
-
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -76,10 +59,12 @@ function Card({ data, itemsInCart, setItemsInCart }) {
         for (let i = 0; i < itemsInCart.length; i++) {
             if (itemsInCart[i][0].id == data.id) {
                 itemsInCart[i][1] += quantity;
+                setQuantity(1);
                 return;
             }
         }
         setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
+        setQuantity(1);
     }
 
     return (

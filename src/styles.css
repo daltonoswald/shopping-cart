@@ -1,10 +1,12 @@
-@import "./store.css";
-@import "./nav.css";
-@import "./cart.css";
-@import "./checkout.css";
+@import "./styles/store.css";
+@import "./styles/nav.css";
+@import "./styles/cart.css";
+@import "./styles/checkout.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html {
     margin: 0;
+    font-family: Roboto;
 }
 
 body {

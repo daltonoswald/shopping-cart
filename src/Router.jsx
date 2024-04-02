@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Homepage from "./Homepage";
-import Store from "./Store";
-import ErrorPage from "./ErrorPage";
-import ItemPage from "./ItemPage";
-import Cart from "./Cart";
-import Checkout from "./Checkout"
+import Homepage from "./components/Homepage";
+import Store from "./components/Store";
+import ErrorPage from "./components/ErrorPage";
+import ItemPage from "./components/ItemPage";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout"
 import "./styles.css"
 
 function Router() {
@@ -22,7 +22,7 @@ function Router() {
             setTotalItems(totalItems);
         }
         calculateTotalItems();
-    },[itemsInCart, totalPrice]);
+    },[itemsInCart, totalPrice, totalItems]);
 
     const router = createBrowserRouter([
         {

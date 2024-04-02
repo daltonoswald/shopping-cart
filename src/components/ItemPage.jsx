@@ -1,5 +1,5 @@
 import Nav from "./Nav";
-import FetchStore from "./FetchStore";
+import FetchStore from "../FetchStore";
 
 function ItemPage() {
     FetchStore();
