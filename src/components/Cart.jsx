@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav"
+import Footer from "./Footer";
 
 function Cart({itemsInCart, setItemsInCart, totalPrice, setTotalPrice, totalItems, setTotalItems}) {
     return (
@@ -36,6 +37,7 @@ function Cart({itemsInCart, setItemsInCart, totalPrice, setTotalPrice, totalItem
                 )
                 }
         </div>
+        <Footer />
         </>
     )
 }

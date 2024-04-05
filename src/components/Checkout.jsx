@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav"
+import Footer from "./Footer";
 
 function Checkout({itemsInCart, setTotalItems, totalItems, totalPrice, setTotalPrice}) {
     const shippingCost = 5;
@@ -88,6 +89,7 @@ function Checkout({itemsInCart, setTotalItems, totalItems, totalPrice, setTotalP
                 </div>
             </div>
             </div>
+            <Footer />
         </>
     )
 }

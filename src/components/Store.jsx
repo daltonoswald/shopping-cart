@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Nav from "./Nav"
 import FetchStore from "../FetchStore"
 import fetchData from "../FetchStore"
+import Footer from "./Footer";
 
 function Store({itemsInCart, setItemsInCart, totalItems}) {
     const [data, setData] = useState([]);
@@ -41,6 +42,7 @@ function Store({itemsInCart, setItemsInCart, totalItems}) {
                     )}
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

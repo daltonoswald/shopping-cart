@@ -1,4 +1,5 @@
 import Nav from "./Nav"
+import Footer from "./Footer"
 
 function Homepage({itemsInCart, totalItems}) {
     return (
@@ -7,6 +8,7 @@ function Homepage({itemsInCart, totalItems}) {
             <div className="content">
                 <h1>Welcome to the homepage!</h1>
             </div>
+            <Footer />
         </>
     )
 }
