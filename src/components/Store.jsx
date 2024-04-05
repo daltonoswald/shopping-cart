@@ -59,6 +59,7 @@ function Card({ data, itemsInCart, setItemsInCart }) {
         for (let i = 0; i < itemsInCart.length; i++) {
             if (itemsInCart[i][0].id == data.id) {
                 itemsInCart[i][1] += quantity;
+                setItemsInCart([...itemsInCart]);
                 setQuantity(1);
                 return;
             }

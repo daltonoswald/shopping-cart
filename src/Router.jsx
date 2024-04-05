@@ -22,7 +22,7 @@ function Router() {
             setTotalItems(totalItems);
         }
         calculateTotalItems();
-    },[itemsInCart, totalPrice, totalItems]);
+    });
 
     const router = createBrowserRouter([
         {
@@ -49,7 +49,7 @@ function Router() {
         },
         {
             path: "checkout",
-            element: <Checkout totalItems={totalItems} totalPrice={totalPrice} />,
+            element: <Checkout itemsInCart={itemsInCart} totalItems={totalItems} setTotalItems={setTotalItems} totalPrice={totalPrice} setTotalPrice={setTotalPrice} />,
             errorElement: <ErrorPage itemsInCart={itemsInCart} totalItems={totalItems}/>
         }
     ]);

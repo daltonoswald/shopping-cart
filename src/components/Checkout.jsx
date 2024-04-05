@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav"
 
-function Checkout({itemsInCart, totalItems, totalPrice}) {
+function Checkout({itemsInCart, setTotalItems, totalItems, totalPrice, setTotalPrice}) {
     const shippingCost = 5;
     let totalPriceNum = Number(totalPrice);
     let estimatedTax = ((totalPriceNum + shippingCost) * .07)

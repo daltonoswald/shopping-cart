@@ -50,6 +50,7 @@ function CartItem({ data, itemsInCart, setItemsInCart }) {
             for (let i = 0; i < itemsInCart.length; i++) {
                 if (itemsInCart[i][0].id == data[0].id) {
                     itemsInCart[i][1] -= 1;
+                    setItemsInCart([...itemsInCart]);
                     return;
                 }
             }
@@ -63,14 +64,12 @@ function CartItem({ data, itemsInCart, setItemsInCart }) {
         for (let i = 0; i < itemsInCart.length; i++) {
             if (itemsInCart[i][0].id == data[0].id) {
                 itemsInCart[i][1] += 1;
+                setItemsInCart([...itemsInCart]);
                 return;
             }
         }
         setItemsInCart((prevItems) => [...prevItems, [data, quantity]]);
     }
-
-    // function updateCart(e) {
-    // }
 
     function removeItem(data) {
         const updatedCart = itemsInCart.filter(item => item[0].id !== data[0].id);
@@ -86,7 +85,6 @@ function CartItem({ data, itemsInCart, setItemsInCart }) {
                     <button id="minus" onClick={handleDecrease}>-</button>
                     <div className="quantity">{quantity}</div>
                     <button id="plus" onClick={handleIncrease}>+</button>
-                    {/* <button className="update-cart" onClick={updateCart}>Update Cart</button> */}
                 </div>
                 <button className="remove" onClick={()=> removeItem(data)}>Remove</button>
                 <div className="item-price">${(data[0].price * (quantity)).toFixed(2)}</div>
