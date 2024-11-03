@@ -3,11 +3,14 @@
 @import "./styles/cart.css";
 @import "./styles/checkout.css";
 @import "./styles/footer.css";
+@import "./styles/homepage.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html {
     margin: 0;
     font-family: Roboto;
+    height: 100vh;
+    background-color: #FAF9F6;
 }
 
 body {

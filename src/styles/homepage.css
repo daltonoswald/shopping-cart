@@ -1,0 +1,18 @@
+.welcome-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome-link {
+    background-color: lightsteelblue;
+    font-size: 24px;
+    padding: 1vh;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.welcome-icon {
+    height: 250px;
+}
+
