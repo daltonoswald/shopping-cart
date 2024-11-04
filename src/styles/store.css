@@ -21,7 +21,12 @@
     text-align: center;
     width: 150px;
     border: 2px solid black;
+    border-radius: 16px;
     padding: 1em;
+}
+
+.store-card:hover {
+    box-shadow: black 0px 3px 8px;
 }
 
 .item-image {

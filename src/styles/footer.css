@@ -8,6 +8,10 @@
     flex-wrap: wrap;
 }
 
+.newsletter-info {
+    margin: 0;
+}
+
 .newsletter-left {
     width: 60%
 }
@@ -15,11 +19,12 @@
 .member {
     font-size: 1.5rem;
     font-weight: 700;
+    margin: 0;
 }
 
 .sign-up {
     font-size: 1.2rem;
-    padding: 2vh;
+    padding: 1vh;
     border: 2px solid black;
     border-radius: 16px;
     background-color: darksalmon
@@ -43,7 +48,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 5vh;
+    padding-top: 1vh;
 }
 
 .footer-links {

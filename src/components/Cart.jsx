@@ -14,9 +14,11 @@ function Cart({itemsInCart, setItemsInCart, totalPrice, setTotalPrice, totalItem
                     <div className="cart-heading">Cart</div>
                     <div className="items-in-cart">
                     {itemsInCart.length !== 0 ? (
-                        itemsInCart.map(item => (
+                        <div className="items-container">
+                        {itemsInCart.map(item => (
                             <CartItem itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} key={item[0].id} id={item[0].id} data={item} />
-                        ))
+                        ))}
+                        </div>
                     )
                     : (
                         <>
@@ -83,12 +85,14 @@ function CartItem({ data, itemsInCart, setItemsInCart }) {
             <img src={data[0].image} className="item-image" />
             <div className="item-card">
                 <h3>{data[0].title}</h3>
-                <div className="quantity-section">
-                    <button id="minus" onClick={handleDecrease}>-</button>
-                    <div className="quantity">{quantity}</div>
-                    <button id="plus" onClick={handleIncrease}>+</button>
+                <div className='edit-cart'>
+                    <div className="quantity-section">
+                        <button id="minus" onClick={handleDecrease}>-</button>
+                        <div className="quantity">{quantity}</div>
+                        <button id="plus" onClick={handleIncrease}>+</button>
+                    </div>
+                    <button className="remove" onClick={()=> removeItem(data)}>Remove</button>
                 </div>
-                <button className="remove" onClick={()=> removeItem(data)}>Remove</button>
                 <div className="item-price">${(data[0].price * (quantity)).toFixed(2)}</div>
             </div>
         </div>
