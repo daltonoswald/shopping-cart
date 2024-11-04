@@ -1,6 +1,6 @@
 # React + Vite
 
-The Odin Project Memory Game https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart
+The Odin Project Shopping Cart https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart
 
 This project was created using React + Vite.
 
